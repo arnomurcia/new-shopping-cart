@@ -3,6 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      data: null,
+    };
+  }
   render() {
     return (
       <div className="App">
@@ -23,6 +30,12 @@ class App extends Component {
       </div>
     );
   }
+  componentDidMount() {
+    import('./path to/products.json').then(json =>  this.setState({data}));
+  }
 }
+
+
+
 
 export default App;
