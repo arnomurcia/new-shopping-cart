@@ -4,11 +4,21 @@ import './App.css';
 
 
 
-class ProductTitle extends Component{
+class RawProduct extends Component{
+
   render() {
-    const title = this.props.PRODUCTS.title;
+    //const title = this.props.PRODUCTS.title;
+    
     return(
       <div>
+        <p>
+          <img src={require("./static/data/products/".concat(this.props.each.sku).concat("_2.jpg"))}/>
+          <br />
+          {this.props.each.title}
+          <br />
+          {this.props.each.price}
+
+        </p>
         
       </div>
     );
@@ -21,24 +31,26 @@ class App extends Component {
     super(props);
 
     this.state = {
-      data: null,
+      data: []
     };
+
+    //const products = this.state.data
+    //this.state.data.forEach(product => {
+      //<RawProduct info={product}></RawProduct>
+    //});
   }
   render() {
     return (
       <div>
         
+        {this.state.data.map(prod => <RawProduct each={prod} />)}
       </div>
     );
   }
   componentDidMount() {
-    import('./products.json').then(json =>  this.props.PRODUCTS );
+    import('./products.json').then(json =>  this.setState({data: json.products}) );
   }
 }
-
-const PRODUCTS = [
-
-];
 
 
 export default App;
