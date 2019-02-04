@@ -7,8 +7,6 @@ import './App.css';
 class RawProduct extends Component{
 
   render() {
-    //const title = this.props.PRODUCTS.title;
-    
     return(
       <div>
         <p>
@@ -33,16 +31,10 @@ class App extends Component {
     this.state = {
       data: []
     };
-
-    //const products = this.state.data
-    //this.state.data.forEach(product => {
-      //<RawProduct info={product}></RawProduct>
-    //});
   }
   render() {
     return (
       <div>
-        
         {this.state.data.map(prod => <RawProduct each={prod} />)}
       </div>
     );
